@@ -1,4 +1,4 @@
-package com.mashibing.productionaccidentcases.modoler;
+package com.mashibing.productionaccidentcases;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

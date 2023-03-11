@@ -1,9 +1,10 @@
-package com.mashibing.productionaccidentcases.modoler;
+package com.mashibing.productionaccidentcases.modules;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.mashibing.productionaccidentcases.ProductionAccidentCasesTest;
 import com.mashibing.productionaccidentcases.entity.User;
 import com.mashibing.productionaccidentcases.mapper.UserMapper;
 import com.mashibing.productionaccidentcases.service.UserService;
+import com.mashibing.productionaccidentcases.service.UserServiceA;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.redisson.api.RLock;
@@ -33,7 +34,7 @@ public class UserServiceTest extends ProductionAccidentCasesTest {
 		User user = new User();
 
 		user.setName("张三");
-		user.setIdCard("10000");
+		user.setIdCard("1000");
 
 		LocalDateTime now = LocalDateTime.now();
 		user.setGmtCreate(now);
@@ -47,7 +48,7 @@ public class UserServiceTest extends ProductionAccidentCasesTest {
 		User user = new User();
 
 		user.setName("张三");
-		user.setIdCard("10000");
+		user.setIdCard("1000");
 
 		LocalDateTime now = LocalDateTime.now();
 		user.setGmtCreate(now);
@@ -66,5 +67,14 @@ public class UserServiceTest extends ProductionAccidentCasesTest {
 		} finally {
 			lock.unlock();
 		}
+	}
+
+
+	@Autowired
+	private UserServiceA userServiceA;
+
+	@Test
+	public void testTransaction() {
+		userServiceA.a();
 	}
 }
