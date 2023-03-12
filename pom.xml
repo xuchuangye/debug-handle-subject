@@ -5,7 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>BreakingpointDebug</module>
-        <module>production-accident-cases</module>
+        <module>idempotence</module>
+        <module>cpu-usage</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
